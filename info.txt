@@ -1,0 +1,39 @@
+/************** /
+
+Components : 
+
+  1. Search Input Box 
+    - This is responsible to add new comments at the top level .
+    - Any New Comment will get prepended to the lost of commnets.
+  
+
+  2. Comment list  
+    - It has the list of all comments 
+    - Each Comment is an object with have the following structure
+      - text (string) : "Comment Text",
+      - id (number) : Incremental Id
+      - parentId (number): 
+      - childrenIds (Array) : List of ids of all direct children comments,
+      - style (object) : {
+          marginLeft (number) : We need this property to create a UI heirarchy for paren-child relationship
+        }
+    - Each top level comment has parentId to be -1
+    - Rest of the comments have their parentId to be the id of their parent comment
+    - Actions
+      - Edit 
+         - When Clicked on 'Edit' button , the content inside textarea will become editable.
+      - Delete
+        - Deleteing a comment will result in all its child commments along with the comment itself.
+      - Save
+         - Disabled when
+            - Content is not editable
+            - Content is same as previous content
+            - Content is empty 
+         - Once Enabled and clicked , it will update the comments
+            - Clicking on save will again mark the textarea uneditable  
+      - Reply
+        - To add new reply to this present comment
+        - While editing a comment , first save the comment then you can add replies.
+    
+
+/*****************/
